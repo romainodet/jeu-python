@@ -11,9 +11,10 @@ Fonctionnalités possibles :
 Votre nom :
 
 Vos fonctionnalités :
- - Liste de mots choisis au hasard.
- - Nombre d'essais à la fin
- - (EN COURS) Ascii ART
-
+ - (FINISH)Liste de mots choisis au hasard.
+ - (FINISH)Nombre d'essais à la fin
+ - (FINISH)Ascii ART of the numbers of try --> use the file test_ascii_art.py as a library for this function.
+ - (EN COURS)Si on tape score affiche 
+ - (NOT SURE) -> Mémoriser les lettres
 
 

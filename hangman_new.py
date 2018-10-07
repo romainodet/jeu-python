@@ -21,6 +21,9 @@
 # Licence : GPL
 
 import random
+import test_ascii_art
+
+# function for
 
 #Liste de mots fonctionalité 1
 word_list = ["banana","chapeau","canapé","ordinateur","porte","lampe","photo","soleil","vert","evier","frigo","internet"]
@@ -31,12 +34,10 @@ WORD_TO_GUESS=word_list[nb_wordchoose]
 
 nb_lettres=len(WORD_TO_GUESS)
 
-
-
-
 word_display = ""
+
 for i in range(nb_lettres):
-    word_display = word_display + "_"
+    word_display = word_display + "＿"
 #debug a supprimer
 print(nb_lettres)
 print(WORD_TO_GUESS)
@@ -45,10 +46,29 @@ print(word_display)
 #Fin de la fonctionalité 1
 
 missed_count = 0
-MAX_COUNT = 4
+MAX_COUNT = 10
+ascii_output = ""
+welcome_message = """
+  _    _                                                                            
+ | |  | |                                                                           
+ | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __     __ _  __ _ _ __ ___   ___       
+ |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \   / _` |/ _` | '_ ` _ \ / _ \      
+ | |  | | (_| | | | | (_| | | | | | | (_| | | | | | (_| | (_| | | | | | |  __/_ _ _ 
+ |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|  \__, |\__,_|_| |_|_|_|\___(_|_|_)
+                      __/ |  | | | |                __/ |           | |             
+   __ _ _   _  ___  _|___/_  | |_| |__   ___  __   |___/___  _ __ __| |             
+  / _` | | | |/ _ \/ __/ __| | __| '_ \ / _ \ \ \ /\ / / _ \| '__/ _` |             
+ | (_| | |_| |  __/\__ \__ \ | |_| | | |  __/  \ V  V / (_) | | | (_| |_            
+  \__, |\__,_|\___||___/___/  \__|_| |_|\___|   \_/\_/ \___/|_|  \__,_(_)           
+   __/ |                                                                            
+  |___/                                                                             
+"""
 
-print("Welcome to hangman 1.0, guess the word !")
+print(welcome_message)
+print()
+print("You have a word with %d letters" % nb_lettres, " :")
 print(word_display)
+
 
 while True:
     a = input("Please enter a letter (something else to quit) :")
@@ -83,9 +103,9 @@ while True:
         missed_count += 1
 
         if missed_count >= MAX_COUNT:
-            print("You LOOSE !!!")
+            print(test_ascii_art.ascii_art_hangman(missed_count))
             break
 
-    print("You have",MAX_COUNT-missed_count,"tries left")
+    print("You have", MAX_COUNT - missed_count,"tries left")
+    print(test_ascii_art.ascii_art_hangman(missed_count))
     print(word_display)
-
