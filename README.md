@@ -1,5 +1,4 @@
-#mini games
-Description : C'est tout simplement un pendu !
+#mini games Description : C'est tout simplement un pendu !
 Notions : Chaines de caractères, conditions, boucles
 Difficulté : BLEU
 #Fonctionnalités possibles :
