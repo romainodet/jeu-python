@@ -62,7 +62,6 @@ print()  # print a carriage return
 print("You have a word with %d letters" % nb_lettres, " :")  # indicates how much letters there is in a word
 print(word_display)  # print the underscores for the word
 
-
 while True:
     a = input("Please enter a letter (something else to quit) :")  # user type a letter
 
