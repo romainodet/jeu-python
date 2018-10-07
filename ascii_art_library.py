@@ -18,8 +18,6 @@
      By: romain.odet <romain.odet@lecole-ldlc.com>           
      Created: 07/10/2018 19:02 by Romain ODET  
 """
-
-
 # this function permit to show the ascii art with the number of try.
 def ascii_art_hangman(num):
     if num == 0:  # No try
