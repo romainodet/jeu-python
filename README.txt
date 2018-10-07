@@ -12,8 +12,8 @@ Votre nom :
 
 Vos fonctionnalités :
  - Liste de mots choisis au hasard.
- -
- -
+ - Nombre d'essais à la fin
+ - (EN COURS) Ascii ART
 
 
 
