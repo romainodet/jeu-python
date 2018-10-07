@@ -21,15 +21,15 @@
 # Licence : GPL
 
 import random
-import test_ascii_art
+import ascii_art_library
 
-# function for
 
 #Liste de mots fonctionalité 1
-word_list = ["banana","chapeau","canapé","ordinateur","porte","lampe","photo","soleil","vert","evier","frigo","internet"]
+word_list = ["banana", "chapeau", "canapé", "ordinateur", "porte", "lampe", "photo", "soleil", "vert", "evier", "frigo",
+             "internet"]
 
-nb_wordchoose=random.randint(1,len(word_list))
-
+nb_wordchoose = random.randint(0, len(word_list)) - 1
+print(nb_wordchoose)
 WORD_TO_GUESS=word_list[nb_wordchoose]
 
 nb_lettres=len(WORD_TO_GUESS)
@@ -103,9 +103,9 @@ while True:
         missed_count += 1
 
         if missed_count >= MAX_COUNT:
-            print(test_ascii_art.ascii_art_hangman(missed_count))
+            print(ascii_art_library.ascii_art_hangman(missed_count))
             break
 
     print("You have", MAX_COUNT - missed_count,"tries left")
-    print(test_ascii_art.ascii_art_hangman(missed_count))
+    print(ascii_art_library.ascii_art_hangman(missed_count))
     print(word_display)
