@@ -1,5 +1,25 @@
+"""
+                 /
+    |      /  |////:  o////  ./////    s`      y////-
+    |         |       /      s-    s.  h`      h
+    |         |////.  /      s-    s-  h`      d////`
+    |         |       /      s-    s.  h`      h
+    |////     |////:  o/::/  -o/::/o   y////.  d////-
+
+        -mmmmm.   ymmmmmmmmmy-   ymmmm-       -ymmmmmmmo
+        -mmmmm.   ymmmm+ohmmmm-  ymmmm-     :mmmmdo/+s+
+        -mmmmm.   ymmm     hmmmo ymmmm-    hmmmm:
+        -mmmmm:   hmmm     mmmm/ ymmmm/    ymmmmy:
+        -mmmmmmmmmmmmmmmmmmmms   ymmmmmmmm  dommmmmmmmo
+        -hhhhhhhhhhhhhhhhys+/    shhhhhhhhy  ./shddhh/
+        
+     file :hangman_new.py
+     By: romain.odet <romain.odet@lecole-ldlc.com>           
+     Created: 06/10/2018 12:11 by Romain ODET  
+"""
 # Author : Antoine Scherrer <antoine.scherrer@lecol-ldlc.com>
 # Licence : GPL
+
 import random
 
 #Liste de mots fonctionalité 1
