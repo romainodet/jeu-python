@@ -73,39 +73,43 @@ print(word_display)
 while True:
     a = input("Please enter a letter (something else to quit) :")
 
-    if len(a) != 1 or not a.isalpha():
-        print("Bad input, exiting")
-        break
-
-    if a in WORD_TO_GUESS:
-        print("Well done, ", a,"is in the word !")
-        # We need to convert the string to a list (since strings are immutable)
-        wd = list(word_display)
-        # We iterate over the letter of the word
-        for i in range(len(WORD_TO_GUESS)):
-            # If the letter is the same as the one just found, we update the wd variable
-            if WORD_TO_GUESS[i] == a:
-                wd[i] = a
-
-        # This allows to convert the list back to a string
-        word_display = "".join(wd)
-
-        if word_display == WORD_TO_GUESS:
-            print("YOU WIN !! The word was", WORD_TO_GUESS)
-            if missed_count == 0:
-                print("Congrats! You find the word in one time!")
-            else:
-                print("You find the word in", missed_count, "times")
-            break
-
+    if a == "score":
+        print("You have", MAX_COUNT - missed_count, "tries left")
+        print(ascii_art_library.ascii_art_hangman(missed_count))
     else:
-        print("missed, try again !")
-        missed_count += 1
-
-        if missed_count >= MAX_COUNT:
-            print(ascii_art_library.ascii_art_hangman(missed_count))
+        if len(a) != 1 or not a.isalpha():
+            print("Bad input, exiting")
             break
 
-    print("You have", MAX_COUNT - missed_count,"tries left")
-    print(ascii_art_library.ascii_art_hangman(missed_count))
-    print(word_display)
+        if a in WORD_TO_GUESS:
+            print("Well done, ", a, "is in the word !")
+            # We need to convert the string to a list (since strings are immutable)
+            wd = list(word_display)
+            # We iterate over the letter of the word
+            for i in range(len(WORD_TO_GUESS)):
+                # If the letter is the same as the one just found, we update the wd variable
+                if WORD_TO_GUESS[i] == a:
+                    wd[i] = a
+
+            # This allows to convert the list back to a string
+            word_display = "".join(wd)
+
+            if word_display == WORD_TO_GUESS:
+                print("YOU WIN !! The word was", WORD_TO_GUESS)
+                if missed_count == 0:
+                    print("Congrats! You find the word in one time!")
+                else:
+                    print("You find the word in", missed_count, "times")
+                break
+
+        else:
+            print("missed, try again !")
+            missed_count += 1
+
+            if missed_count >= MAX_COUNT:
+                print(ascii_art_library.ascii_art_hangman(missed_count))
+                break
+
+        print("You have", MAX_COUNT - missed_count, "tries left")
+        print(ascii_art_library.ascii_art_hangman(missed_count))
+        print(word_display)
