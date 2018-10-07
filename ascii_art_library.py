@@ -20,19 +20,20 @@
 """
 
 
+# this function permit to show the ascii art with the number of try.
 def ascii_art_hangman(num):
-    if num == 0:
+    if num == 0:  # No try
         ascii_output = "Well done, you don't have make mistakes."
-    elif num == 1:
+    elif num == 1:  # 1st try Ascii ART
         ascii_output = """
                     1st try...
 ==================================="""
-    elif num == 2:
+    elif num == 2:  # 2d try
         ascii_output = """
           /  \\
          //  \\\\     2d try...
 ==================================="""
-    elif num == 3:
+    elif num == 3:  # 3rd try
         ascii_output = """
            ||
            ||
@@ -43,7 +44,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     3rd try...
 ==================================="""
-    elif num == 4:
+    elif num == 4:  # 4th try
         ascii_output = """
            ||  /
            || /
@@ -54,7 +55,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     4th try...
 ==================================="""
-    elif num == 5:
+    elif num == 5:  # 5th try
         ascii_output = """
            ,==============
            ||  /
@@ -66,7 +67,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     5th try...
 ==================================="""
-    elif num == 6:
+    elif num == 6:  # 6th try
         ascii_output = """
            ,==========Y===
            ||  /      |
@@ -78,7 +79,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     6th try...
 ==================================="""
-    elif num == 7:
+    elif num == 7:  # 7th try
         ascii_output = """
            ,==========Y===
            ||  /      |
@@ -90,7 +91,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     7th try...
 ==================================="""
-    elif num == 8:
+    elif num == 8:  # 8th try
         ascii_output = """
            ,==========Y===
            ||  /      |
@@ -102,7 +103,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     8th try...
 ==================================="""
-    elif num == 9:
+    elif num == 9:  # 9th try
         ascii_output = """
            ,==========Y===
            ||  /      |
@@ -114,7 +115,7 @@ def ascii_art_hangman(num):
           /||\\
          //||\\\\     9th try and the last...
 ==================================="""
-    elif num == 10:
+    elif num == 10:  # 10th try
         ascii_output = """
                      _
                     | |
@@ -134,9 +135,11 @@ def ascii_art_hangman(num):
           /||\ 
          //||\\\\    o-|-<
 ==================================="""
-    else:
+    else:  # other cases exit the program.
         exit(404)
     cr = """
     
-    """
-    return (cr + ascii_output + cr)
+    """  # Carriage return for the output
+    return (cr + ascii_output + cr)  # output to the program with a carriage before and after the ascii output
+
+# End of the function
