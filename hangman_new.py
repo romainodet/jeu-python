@@ -21,7 +21,140 @@
 # Licence : GPL
 
 import random  # importing the library for random numbers
-import ascii_art_library  # importing the file with the function for the ascii art.
+
+
+def display_list(name_of_the_list, sep):
+    i = 0
+    while i < (len(name_of_the_list)):
+        print(name_of_the_list[i], end=sep)
+        i += 1
+    return 0
+
+
+# this function permit to show the ascii art with the number of try.
+def ascii_art_hangman(num):
+    if num == 0:  # No try
+        ascii_output = "Well done, you don't have make mistakes."
+    elif num == 1:  # 1st try Ascii ART
+        ascii_output = """
+                    1st try...
+==================================="""
+    elif num == 2:  # 2d try
+        ascii_output = """
+          /  \\
+         //  \\\\     2d try...
+==================================="""
+    elif num == 3:  # 3rd try
+        ascii_output = """
+           ||
+           ||
+           ||
+           ||
+           ||
+           ||
+          /||\\
+         //||\\\\     3rd try...
+==================================="""
+    elif num == 4:  # 4th try
+        ascii_output = """
+           ||  /
+           || /
+           ||/
+           ||
+           ||
+           ||
+          /||\\
+         //||\\\\     4th try...
+==================================="""
+    elif num == 5:  # 5th try
+        ascii_output = """
+           ,==============
+           ||  /
+           || /
+           ||/
+           ||
+           ||
+           ||
+          /||\\
+         //||\\\\     5th try...
+==================================="""
+    elif num == 6:  # 6th try
+        ascii_output = """
+           ,==========Y===
+           ||  /      |
+           || /       |
+           ||/
+           ||
+           ||
+           ||
+          /||\\
+         //||\\\\     6th try...
+==================================="""
+    elif num == 7:  # 7th try
+        ascii_output = """
+           ,==========Y===
+           ||  /      |
+           || /       |
+           ||/        O
+           ||         |
+           ||         |
+           ||
+          /||\\
+         //||\\\\     7th try...
+==================================="""
+    elif num == 8:  # 8th try
+        ascii_output = """
+           ,==========Y===
+           ||  /      |
+           || /       |
+           ||/        O
+           ||        /|\\
+           ||         |
+           ||
+          /||\\
+         //||\\\\     8th try...
+==================================="""
+    elif num == 9:  # 9th try
+        ascii_output = """
+           ,==========Y===
+           ||  /      |
+           || /       |
+           ||/        O
+           ||        /|\\
+           ||        /|\\
+           ||
+          /||\\
+         //||\\\\     9th try and the last...
+==================================="""
+    elif num == 10:  # 10th try
+        ascii_output = """
+                     _
+                    | |
+ _   _  ___  _   _  | | ___   ___  ___  ___
+| | | |/ _ \| | | | | |/ _ \ / _ \/ __|/ _ \\
+| |_| | (_) | |_| | | | (_) | (_) \__ \  __/_ _ _
+ \__, |\___/ \__,_| |_|\___/ \___/|___/\___(_|_|_)
+  __/ |
+ |___/
+           ,==========Y===
+           ||  /      |
+           || /       |
+           ||/
+           ||
+           ||
+           ||
+          /||\ 
+         //||\\\\    o-|-<
+==================================="""
+    else:  # other cases exit the program.
+        exit(404)
+    cr = """
+
+    """  # Carriage return for the output
+    return (cr + ascii_output + cr)  # output to the program with a carriage before and after the ascii output
+
+
+# End of the function
 
 # Functionalty start
 word_list = ["banana", "chapeau", "canapé", "ordinateur", "porte", "lampe", "photo", "soleil", "vert", "evier", "frigo",
@@ -34,6 +167,8 @@ WORD_TO_GUESS = word_list[nb_wordchoose]  # take the random word
 nb_lettres = len(WORD_TO_GUESS)  # have the number of letters
 
 word_display = ""  # init the var word display
+
+missed_letters = []
 
 for i in range(nb_lettres):  # display underscores in function of the number of letters in the random word choose
     word_display = word_display + "＿"
@@ -67,7 +202,7 @@ while True:
 
     if a == "score":  # if user type score, print the actual errors he makes
         print("You have", MAX_COUNT - missed_count, "tries left")
-        print(ascii_art_library.ascii_art_hangman(missed_count))
+        print(ascii_art_hangman(missed_count))
     else:
         if len(a) != 1 or not a.isalpha():  # if it's not only one letter ASCII
             print("Bad input, exiting")  # print the message bad input
@@ -92,18 +227,19 @@ while True:
                     print("Congrats! You find the word in one time!")  # congrats the plater
                 else:  # else inform the number of error he made
                     print("You find the word in", missed_count, "times")
-                    print(ascii_art_library.ascii_art_hangman(missed_count))  # print the ascii art of the hangman
+                    print(ascii_art_hangman(missed_count))  # print the ascii art of the hangman
                 break
 
         else:  # if the letter the user type is not in the word
             print("missed, try again !")  # inform the user he missed
             missed_count += 1  # add one to the counter of the letter
-
+            missed_letters.append(a)
+            print("You try those letters : ")
+            display_list(missed_letters, ", ")
+            print("")
             if missed_count >= MAX_COUNT:  # if the counter of error is equal of the max error the user can make
-                print(ascii_art_library.ascii_art_hangman(
-                    missed_count))  # displat the ascii art of the hangman of the loose
-                break
+                print(ascii_art_hangman(missed_count))  # display the ascii art of the hangman of the loose
 
         print("You have", MAX_COUNT - missed_count, "tries left")  # display the number of errors
-        print(ascii_art_library.ascii_art_hangman(missed_count))  # display the ascii art of the number of missed count
+        print(ascii_art_hangman(missed_count))  # display the ascii art of the number of missed count
         print(word_display)  # display the word the player find

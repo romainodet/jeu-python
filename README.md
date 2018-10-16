@@ -16,6 +16,6 @@ Difficulté : BLEU
  - (FINISH) Nombre d'essais à la fin
  - (FINISH) Ascii ART of the numbers of try --> use the file test_ascii_art.py as a library for this function.
  - (FINISH) Si on tape score affiche le score actuel
- - (NOT SURE) -> Mémoriser les lettres
+ - (FINISH) -> Mémoriser les lettres
 
 
