@@ -156,90 +156,142 @@ def ascii_art_hangman(num):
 
 # End of the function
 
-# Functionalty start
-word_list = ["banana", "chapeau", "canapé", "ordinateur", "porte", "lampe", "photo", "soleil", "vert", "evier", "frigo",
-             "internet"]  # list of the word
+print("""
 
-nb_wordchoose = random.randint(0, len(word_list)) - 1  # Choose a word in the list with it numbers in the list
+        .__       .__                                       
+  _____ |__| ____ |__|    _________    _____   ____   ______
+ /     \|  |/    \|  |   / ___\__  \  /     \_/ __ \ /  ___/
+|  Y Y  \  |   |  \  |  / /_/  > __ \|  Y Y  \  ___/ \___ \ 
+|__|_|  /__|___|  /__|  \___  (____  /__|_|  /\___  >____  >
+      \/        \/     /_____/     \/      \/     \/     \/ 
 
-WORD_TO_GUESS = word_list[nb_wordchoose]  # take the random word
+ _        ___  _          _ _                                                                
+/ | ___  |_ _|| |_  ___  | | | ___ ._ _  ___ ._ _ _  ___ ._ _                                
+| ||___|  | | | . |/ ._> |   |<_> || ' |/ . || ' ' |<_> || ' |                               
+|_|       |_| |_|_|\___. |_|_|<___||_|_|\_. ||_|_|_|<___||_|_|                               
+                                        <___'                                                
+ ___       ___                        _    _                           _                     
+<_  >___  /  _>  _ _  ___  ___ ___  _| |_ | |_  ___  ._ _  _ _ ._ _ _ | |_  ___  _ _         
+ / /|___| | <_/\| | |/ ._><_-<<_-<   | |  | . |/ ._> | ' || | || ' ' || . \/ ._>| '_>_  _  _ 
+<___>     `____/`___|\___./__//__/   |_|  |_|_|\___. |_|_|`___||_|_|_||___/\___.|_| <_><_><_>
+                                                                                            
+""")
+y = int(input("Choisisez votre jeux : "))
 
-nb_lettres = len(WORD_TO_GUESS)  # have the number of letters
+if y == 1:
+    # Functionalty start
+    word_list = ["banana", "chapeau", "canapé", "ordinateur", "porte", "lampe", "photo", "soleil", "vert", "evier",
+                 "frigo",
+                 "internet"]  # list of the word
 
-word_display = ""  # init the var word display
+    nb_wordchoose = random.randint(0, len(word_list)) - 1  # Choose a word in the list with it numbers in the list
 
-missed_letters = []
+    WORD_TO_GUESS = word_list[nb_wordchoose]  # take the random word
 
-for i in range(nb_lettres):  # display underscores in function of the number of letters in the random word choose
-    word_display = word_display + "＿"
-# end of the additional functionalitie
+    nb_lettres = len(WORD_TO_GUESS)  # have the number of letters
 
-missed_count = 0  # init the var of missed answer
-MAX_COUNT = 10  # init the var of maximum errors
-welcome_message = """
-  _    _                                                                            
- | |  | |                                                                           
- | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __     __ _  __ _ _ __ ___   ___       
- |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \   / _` |/ _` | '_ ` _ \ / _ \      
- | |  | | (_| | | | | (_| | | | | | | (_| | | | | | (_| | (_| | | | | | |  __/_ _ _ 
- |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|  \__, |\__,_|_| |_|_|_|\___(_|_|_)
-                      __/ |  | | | |                __/ |           | |             
-   __ _ _   _  ___  _|___/_  | |_| |__   ___  __   |___/___  _ __ __| |             
-  / _` | | | |/ _ \/ __/ __| | __| '_ \ / _ \ \ \ /\ / / _ \| '__/ _` |             
- | (_| | |_| |  __/\__ \__ \ | |_| | | |  __/  \ V  V / (_) | | | (_| |_            
-  \__, |\__,_|\___||___/___/  \__|_| |_|\___|   \_/\_/ \___/|_|  \__,_(_)           
-   __/ |                                                                            
-  |___/                                                                             
-"""  # init the var with the welcome message
+    word_display = ""  # init the var word display
 
-print(welcome_message)  # display the welcome message
-print()  # print a carriage return
-print("You have a word with %d letters" % nb_lettres, " :")  # indicates how much letters there is in a word
-print(word_display)  # print the underscores for the word
+    missed_letters = []
 
-while True:
-    a = input("Please enter a letter (something else to quit) :")  # user type a letter
+    for i in range(nb_lettres):  # display underscores in function of the number of letters in the random word choose
+        word_display = word_display + "＿"
+    # end of the additional functionalitie
 
-    if a == "score":  # if user type score, print the actual errors he makes
-        print("You have", MAX_COUNT - missed_count, "tries left")
-        print(ascii_art_hangman(missed_count))
-    else:
-        if len(a) != 1 or not a.isalpha():  # if it's not only one letter ASCII
-            print("Bad input, exiting")  # print the message bad input
-            break  # Quit the program
+    missed_count = 0  # init the var of missed answer
+    MAX_COUNT = 10  # init the var of maximum errors
+    welcome_message = """
+      _    _                                                                            
+     | |  | |                                                                           
+     | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __     __ _  __ _ _ __ ___   ___       
+     |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \   / _` |/ _` | '_ ` _ \ / _ \      
+     | |  | | (_| | | | | (_| | | | | | | (_| | | | | | (_| | (_| | | | | | |  __/_ _ _ 
+     |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|  \__, |\__,_|_| |_|_|_|\___(_|_|_)
+                          __/ |  | | | |                __/ |           | |             
+       __ _ _   _  ___  _|___/_  | |_| |__   ___  __   |___/___  _ __ __| |             
+      / _` | | | |/ _ \/ __/ __| | __| '_ \ / _ \ \ \ /\ / / _ \| '__/ _` |             
+     | (_| | |_| |  __/\__ \__ \ | |_| | | |  __/  \ V  V / (_) | | | (_| |_            
+      \__, |\__,_|\___||___/___/  \__|_| |_|\___|   \_/\_/ \___/|_|  \__,_(_)           
+       __/ |                                                                            
+      |___/                                                                             
+    """  # init the var with the welcome message
 
-        if a in WORD_TO_GUESS:  # if the letter is in the word to guess
-            print("Well done, ", a, "is in the word !")
-            # We need to convert the string to a list (since strings are immutable)
-            wd = list(word_display)
-            # We iterate over the letter of the word
-            for i in range(len(WORD_TO_GUESS)):
-                # If the letter is the same as the one just found, we update the wd variable
-                if WORD_TO_GUESS[i] == a:
-                    wd[i] = a
+    print(welcome_message)  # display the welcome message
+    print()  # print a carriage return
+    print("You have a word with %d letters" % nb_lettres, " :")  # indicates how much letters there is in a word
+    print(word_display)  # print the underscores for the word
 
-            # This allows to convert the list back to a string
-            word_display = "".join(wd)
+    while True:
+        a = input("Please enter a letter (something else to quit) :")  # user type a letter
 
-            if word_display == WORD_TO_GUESS:  # if the word wich is display is the same of the word display
-                print("YOU WIN !! The word was", WORD_TO_GUESS)  # say the player he win.
-                if missed_count == 0:  # if he find the word in one time
-                    print("Congrats! You find the word in one time!")  # congrats the plater
-                else:  # else inform the number of error he made
-                    print("You find the word in", missed_count, "times")
-                    print(ascii_art_hangman(missed_count))  # print the ascii art of the hangman
-                break
+        if a == "score":  # if user type score, print the actual errors he makes
+            print("You have", MAX_COUNT - missed_count, "tries left")
+            print(ascii_art_hangman(missed_count))
+        else:
+            if len(a) != 1 or not a.isalpha():  # if it's not only one letter ASCII
+                print("Bad input, exiting")  # print the message bad input
+                break  # Quit the program
 
-        else:  # if the letter the user type is not in the word
-            print("missed, try again !")  # inform the user he missed
-            missed_count += 1  # add one to the counter of the letter
-            missed_letters.append(a)
-            print("You try those letters : ")
-            display_list(missed_letters, ", ")
-            print("")
-            if missed_count >= MAX_COUNT:  # if the counter of error is equal of the max error the user can make
-                print(ascii_art_hangman(missed_count))  # display the ascii art of the hangman of the loose
+            if a in WORD_TO_GUESS:  # if the letter is in the word to guess
+                print("Well done, ", a, "is in the word !")
+                # We need to convert the string to a list (since strings are immutable)
+                wd = list(word_display)
+                # We iterate over the letter of the word
+                for i in range(len(WORD_TO_GUESS)):
+                    # If the letter is the same as the one just found, we update the wd variable
+                    if WORD_TO_GUESS[i] == a:
+                        wd[i] = a
 
-        print("You have", MAX_COUNT - missed_count, "tries left")  # display the number of errors
-        print(ascii_art_hangman(missed_count))  # display the ascii art of the number of missed count
-        print(word_display)  # display the word the player find
+                # This allows to convert the list back to a string
+                word_display = "".join(wd)
+
+                if word_display == WORD_TO_GUESS:  # if the word wich is display is the same of the word display
+                    print("YOU WIN !! The word was", WORD_TO_GUESS)  # say the player he win.
+                    if missed_count == 0:  # if he find the word in one time
+                        print("Congrats! You find the word in one time!")  # congrats the plater
+                    else:  # else inform the number of error he made
+                        print("You find the word in", missed_count, "times")
+                        print(ascii_art_hangman(missed_count))  # print the ascii art of the hangman
+                    break
+
+            else:  # if the letter the user type is not in the word
+                print("missed, try again !")  # inform the user he missed
+                missed_count += 1  # add one to the counter of the letter
+                missed_letters.append(a)
+                print("You try those letters : ")
+                display_list(missed_letters, ", ")
+                print("")
+                if missed_count >= MAX_COUNT:  # if the counter of error is equal of the max error the user can make
+                    print(ascii_art_hangman(missed_count))  # display the ascii art of the hangman of the loose
+
+            print("You have", MAX_COUNT - missed_count, "tries left")  # display the number of errors
+            print(ascii_art_hangman(missed_count))  # display the ascii art of the number of missed count
+            print(word_display)  # display the word the player find
+elif y == 2:
+    # Author : Antoine Scherrer <antoine.scherrer@lecol-ldlc.com>
+    # Licence : GPL
+
+    # Import the randint function from the random module
+    from random import randint
+
+    max_num = int(input("Entrez le nombre maximum à deviner : "))
+    number = randint(1, max_num)
+    nb_trials = 0
+
+    print('Welcome, try to guess my secret number between 1 and ', end="")
+    print(max_num)
+
+    while True:
+        user_number = int(input('Your guess ?'))
+        nb_trials = nb_trials + 1
+        if user_number == number:
+            # user won !
+            print("YOU WIN, Congratulations")
+            print("It took you %s trials" % nb_trials)
+            break
+        elif user_number < number:
+            print("too small !")
+        elif user_number > number:
+            print("too big !")
+else:
+    print("Error. Exiting...")
