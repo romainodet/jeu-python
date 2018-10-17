@@ -272,26 +272,28 @@ elif y == 2:
     # Licence : GPL
 
     # Import the randint function from the random module
-    from random import randint
+    from random import randint  # import the library
 
-    max_num = int(input("Entrez le nombre maximum à deviner : "))
-    number = randint(1, max_num)
-    nb_trials = 0
+    max_num = int(input("Enter the maximum number you can guess : "))  # get the max number
+    number = randint(1, max_num)  # choose the number to guess
+    nb_trials = 0  # number of try
 
     print('Welcome, try to guess my secret number between 1 and ', end="")
     print(max_num)
-
-    while True:
-        user_number = int(input('Your guess ?'))
-        nb_trials = nb_trials + 1
-        if user_number == number:
+    essai = int(input("How many try do you want : "))  # get the max try the user want
+    i = 0
+    while i < essai:  # while the number of try is not equal to the try the user do
+        user_number = int(input('Your guess ?'))  # number the word think it's
+        nb_trials = nb_trials + 1  # add 1 to the number of trial
+        if user_number == number:  # if user type the same number as the AI
             # user won !
             print("YOU WIN, Congratulations")
             print("It took you %s trials" % nb_trials)
             break
-        elif user_number < number:
+        elif user_number < number:  # if user number is under the ai number
             print("too small !")
-        elif user_number > number:
+        elif user_number > number:  # else if user number is upper of the ai number
             print("too big !")
+        i += 1
 else:
     print("Error. Exiting...")
