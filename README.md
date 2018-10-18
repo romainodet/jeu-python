@@ -17,5 +17,5 @@ Difficulté : BLEU
  - (FINISH) Ascii ART of the numbers of try --> use the file test_ascii_art.py as a library for this function.
  - (FINISH) Si on tape score affiche le score actuel
  - (FINISH) -> Mémoriser les lettres
-
-
+ - (FINISH) menu multi-jeux
+ - (FINISH) Add the game guess my number

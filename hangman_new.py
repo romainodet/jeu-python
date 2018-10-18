@@ -17,7 +17,7 @@
      By: romain.odet <romain.odet@lecole-ldlc.com>           
      Created: 06/10/2018 12:11 by Romain ODET  
 """
-# Author : Antoine Scherrer <antoine.scherrer@lecol-ldlc.com>
+# Author : Antoine Scherrer <antoine.scherrer@lecole-ldlc.com>
 # Licence : GPL
 
 import random  # importing the library for random numbers
@@ -268,11 +268,8 @@ if y == 1:
             print(ascii_art_hangman(missed_count))  # display the ascii art of the number of missed count
             print(word_display)  # display the word the player find
 elif y == 2:
-    # Author : Antoine Scherrer <antoine.scherrer@lecol-ldlc.com>
+    # Author : Antoine Scherrer <antoine.scherrer@lecole-ldlc.com>
     # Licence : GPL
-
-    # Import the randint function from the random module
-    from random import randint  # import the library
 
     max_num = int(input("Enter the maximum number you can guess : "))  # get the max number
     number = randint(1, max_num)  # choose the number to guess
@@ -297,3 +294,4 @@ elif y == 2:
         i += 1
 else:
     print("Error. Exiting...")
+    exit("NO CHOICE MAKE")
