@@ -21,9 +21,7 @@
 # Licence : GPL
 
 import random  # importing the library for random numbers
-import os
 
-os.system('cls')  # on windows
 
 def display_list(name_of_the_list, sep):
     i = 0
