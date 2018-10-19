@@ -34,15 +34,15 @@ def display_list(name_of_the_list, sep):
 # this function permit to show the ascii art with the number of try.
 def ascii_art_hangman(num):
     if num == 0:  # No try
-        ascii_output = "Well done, you don't have make mistakes."
+        ascii_output = "Bien joué ! Aucune faute."
     elif num == 1:  # 1st try Ascii ART
         ascii_output = """
-                    1st try...
+                    1er essai...
 ==================================="""
     elif num == 2:  # 2d try
         ascii_output = """
           /  \\
-         //  \\\\     2d try...
+         //  \\\\     2ème essai...
 ==================================="""
     elif num == 3:  # 3rd try
         ascii_output = """
@@ -53,7 +53,7 @@ def ascii_art_hangman(num):
            ||
            ||
           /||\\
-         //||\\\\     3rd try...
+         //||\\\\     3ème essai...
 ==================================="""
     elif num == 4:  # 4th try
         ascii_output = """
@@ -64,7 +64,7 @@ def ascii_art_hangman(num):
            ||
            ||
           /||\\
-         //||\\\\     4th try...
+         //||\\\\     4ème essai...
 ==================================="""
     elif num == 5:  # 5th try
         ascii_output = """
@@ -76,7 +76,7 @@ def ascii_art_hangman(num):
            ||
            ||
           /||\\
-         //||\\\\     5th try...
+         //||\\\\     5ème essai...
 ==================================="""
     elif num == 6:  # 6th try
         ascii_output = """
@@ -88,7 +88,7 @@ def ascii_art_hangman(num):
            ||
            ||
           /||\\
-         //||\\\\     6th try...
+         //||\\\\     6ème essai...
 ==================================="""
     elif num == 7:  # 7th try
         ascii_output = """
@@ -100,7 +100,7 @@ def ascii_art_hangman(num):
            ||         |
            ||
           /||\\
-         //||\\\\     7th try...
+         //||\\\\     7ème essai...
 ==================================="""
     elif num == 8:  # 8th try
         ascii_output = """
@@ -112,7 +112,7 @@ def ascii_art_hangman(num):
            ||         |
            ||
           /||\\
-         //||\\\\     8th try...
+         //||\\\\     8ème essai...
 ==================================="""
     elif num == 9:  # 9th try
         ascii_output = """
@@ -124,7 +124,7 @@ def ascii_art_hangman(num):
            ||        /|\\
            ||
           /||\\
-         //||\\\\     9th try and the last...
+         //||\\\\     9ème et dernier essai...
 ==================================="""
     elif num == 10:  # 10th try
         ascii_output = """
@@ -155,30 +155,93 @@ def ascii_art_hangman(num):
 
 
 # End of the function
+def menu():
+    name_player_bouffe = ["Tartiflette", "Raclette", "Fondue", "Mimolette", "Cantal", "Brie", "Compte",
+                          "Gratin dauphinois", "Choucroute", "Aligot", "Couscous", "Nems", "Sushi", "Paëla", "Crêpes"]
+    name_player_medics = ["Doliprane", "Smecta", "Spasfon", "Stodal", "Toplexil", "Drill", "Lisopaine", "Antibiotique",
+                          "Ultra levure", "Antadys", "NasoNex", "Ibuprofène", "Lamaline"]
+    name_player_voiture = ["Multipla", "Modus la mauricette", "AMG", "TT", "C4", "Mégane", "Clio", "206", "Duster",
+                           "Logan", "Twingo", "2CV"]
+    name_player_animaux = ["Cochon", "Dinde", "Cochon dinde", "Dindon", "Oie", "Biquette", "Ornithrynque", "Opposum",
+                           "Onyx", "Dodo", "Kiwi", "Chihuahua", "Rat", "Taupe", "Rat-Taupe", "Dragon du comodo",
+                           "Loch Ness", "Ver de terre", "Tatou Rose"]
+    print("""
+    
+            .__       .__                                       
+      _____ |__| ____ |__|    _________    _____   ____   ______
+     /     \|  |/    \|  |   / ___\__  \  /     \_/ __ \ /  ___/
+    |  Y Y  \  |   |  \  |  / /_/  > __ \|  Y Y  \  ___/ \___ \ 
+    |__|_|  /__|___|  /__|  \___  (____  /__|_|  /\___  >____  >
+          \/        \/     /_____/     \/      \/     \/     \/ 
+    
+     _        ___  _          _ _                                                                
+    / | ___  |_ _|| |_  ___  | | | ___ ._ _  ___ ._ _ _  ___ ._ _                                
+    | ||___|  | | | . |/ ._> |   |<_> || ' |/ . || ' ' |<_> || ' |                               
+    |_|       |_| |_|_|\___. |_|_|<___||_|_|\_. ||_|_|_|<___||_|_|                               
+                                            <___'                                                
+     ___       ___                        _    _                           _                     
+    <_  >___  /  _>  _ _  ___  ___ ___  _| |_ | |_  ___  ._ _  _ _ ._ _ _ | |_  ___  _ _         
+     / /|___| | <_/\| | |/ ._><_-<<_-<   | |  | . |/ ._> | ' || | || ' ' || . \/ ._>| '_>_  _  _ 
+    <___>     `____/`___|\___./__//__/   |_|  |_|_|\___. |_|_|`___||_|_|_||___/\___.|_| <_><_><_>
+                                                                                                
+    """)
+    y = int(input("Choisisez votre jeux : "))
+    hasard = input("Souhaitez vous un nom issu des plus grandes recherches de nom ? Répondez par oui ou non : ").lower()
+    if hasard == "oui":
+        nom_cat_choix = input(
+            "Quel de type de nom souhaitez vous ? Tapez : voiture, animaux, bouffe, medicament : ").lower()
+        if nom_cat_choix == "voiture":
+            nom_choix = random.choice(name_player_voiture)
+        elif nom_cat_choix == "animaux":
+            nom_choix = random.choice(name_player_animaux)
+        elif nom_cat_choix == "bouffe":
+            nom_choix = random.choice(name_player_bouffe)
+        elif nom_cat_choix == "medicament":
+            nom_choix = random.choice(name_player_medics)
+    elif hasard == "non":
+        nom_choix = input("Quel nom souhaitez vous avoir ? :")
 
-print("""
+    if y == 1:
+        hangman(nom_choix)
+    elif y == 2:
+        guess_my_number(nom_choix)
+    else:
+        exit("ERROR : NO CHOICE MADE")
 
-        .__       .__                                       
-  _____ |__| ____ |__|    _________    _____   ____   ______
- /     \|  |/    \|  |   / ___\__  \  /     \_/ __ \ /  ___/
-|  Y Y  \  |   |  \  |  / /_/  > __ \|  Y Y  \  ___/ \___ \ 
-|__|_|  /__|___|  /__|  \___  (____  /__|_|  /\___  >____  >
-      \/        \/     /_____/     \/      \/     \/     \/ 
 
- _        ___  _          _ _                                                                
-/ | ___  |_ _|| |_  ___  | | | ___ ._ _  ___ ._ _ _  ___ ._ _                                
-| ||___|  | | | . |/ ._> |   |<_> || ' |/ . || ' ' |<_> || ' |                               
-|_|       |_| |_|_|\___. |_|_|<___||_|_|\_. ||_|_|_|<___||_|_|                               
-                                        <___'                                                
- ___       ___                        _    _                           _                     
-<_  >___  /  _>  _ _  ___  ___ ___  _| |_ | |_  ___  ._ _  _ _ ._ _ _ | |_  ___  _ _         
- / /|___| | <_/\| | |/ ._><_-<<_-<   | |  | . |/ ._> | ' || | || ' ' || . \/ ._>| '_>_  _  _ 
-<___>     `____/`___|\___./__//__/   |_|  |_|_|\___. |_|_|`___||_|_|_||___/\___.|_| <_><_><_>
-                                                                                            
+def hangman(nom):
+    welcome_message = """
+          _    _                                                                            
+         | |  | |                                                                           
+         | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __     __ _  __ _ _ __ ___   ___       
+         |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \   / _` |/ _` | '_ ` _ \ / _ \      
+         | |  | | (_| | | | | (_| | | | | | | (_| | | | | | (_| | (_| | | | | | |  __/_ _ _ 
+         |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|  \__, |\__,_|_| |_|_|_|\___(_|_|_)
+                              __/ |  | | | |                __/ |           | |             
+           __ _ _   _  ___  _|___/_  | |_| |__   ___  __   |___/___  _ __ __| |             
+          / _` | | | |/ _ \/ __/ __| | __| '_ \ / _ \ \ \ /\ / / _ \| '__/ _` |             
+         | (_| | |_| |  __/\__ \__ \ | |_| | | |  __/  \ V  V / (_) | | | (_| |_            
+          \__, |\__,_|\___||___/___/  \__|_| |_|\___|   \_/\_/ \___/|_|  \__,_(_)           
+           __/ |                                                                            
+          |___/                                                                             
+        """  # init the var with the welcome message
+
+    print(welcome_message)  # display the welcome message
+    print(
+        "Salut %s, j'espère que tout va bien car aujourd'hui tu travaille pour Mr Robespierre. Tu doit pendre une personne. " % nom)
+    print(
+        "Cependant un complice peut t'aider à sauver la personne pendu qui est ton meilleur ami. Pour cela tu doit deviner son mot en moins de 9 tentatives.")
+    print("""
+
+ _____ ____  ____  ____    _     _     ____  _  __
+/  __//  _ \/  _ \/  _ \  / \   / \ /\/   _\/ |/ /
+| |  _| / \|| / \|| | \|  | |   | | |||  /  |   / 
+| |_//| \_/|| \_/|| |_/|  | |_/\| \_/||  \_ |   \ 
+\____\\\\____/\____/\____/  \____/\____/\____/\_|\_\\
+                                                  
+
+
 """)
-y = int(input("Choisisez votre jeux : "))
-
-if y == 1:
     # Functionalty start
     word_list = ["banana", "chapeau", "canapé", "ordinateur", "porte", "lampe", "photo", "soleil", "vert", "evier",
                  "frigo",
@@ -200,40 +263,26 @@ if y == 1:
 
     missed_count = 0  # init the var of missed answer
     MAX_COUNT = 10  # init the var of maximum errors
-    welcome_message = """
-      _    _                                                                            
-     | |  | |                                                                           
-     | |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __     __ _  __ _ _ __ ___   ___       
-     |  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \   / _` |/ _` | '_ ` _ \ / _ \      
-     | |  | | (_| | | | | (_| | | | | | | (_| | | | | | (_| | (_| | | | | | |  __/_ _ _ 
-     |_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|  \__, |\__,_|_| |_|_|_|\___(_|_|_)
-                          __/ |  | | | |                __/ |           | |             
-       __ _ _   _  ___  _|___/_  | |_| |__   ___  __   |___/___  _ __ __| |             
-      / _` | | | |/ _ \/ __/ __| | __| '_ \ / _ \ \ \ /\ / / _ \| '__/ _` |             
-     | (_| | |_| |  __/\__ \__ \ | |_| | | |  __/  \ V  V / (_) | | | (_| |_            
-      \__, |\__,_|\___||___/___/  \__|_| |_|\___|   \_/\_/ \___/|_|  \__,_(_)           
-       __/ |                                                                            
-      |___/                                                                             
-    """  # init the var with the welcome message
 
-    print(welcome_message)  # display the welcome message
     print()  # print a carriage return
-    print("You have a word with %d letters" % nb_lettres, " :")  # indicates how much letters there is in a word
+    print(nom, " tu as un mot avec %d lettres...." % nb_lettres, " :")  # indicates how much letters there is in a word
     print(word_display)  # print the underscores for the word
 
     while True:
-        a = input("Please enter a letter (something else to quit) :")  # user type a letter
+        a = input(
+            "Rentre la lettre que tu pense être dans le mot, si tu préfère tué ton ami tapes autre choses qu'une lettre :")  # user type a letter
 
         if a == "score":  # if user type score, print the actual errors he makes
-            print("You have", MAX_COUNT - missed_count, "tries left")
+            print(nom, " Il te reste ", MAX_COUNT - missed_count, "essai avant la mort de ton ami...")
             print(ascii_art_hangman(missed_count))
         else:
             if len(a) != 1 or not a.isalpha():  # if it's not only one letter ASCII
-                print("Bad input, exiting")  # print the message bad input
+                print(nom,
+                      " vous venez de tapez autre chose qu'une lettre. Robespierre vous a repéré. Vous venez de vous tuer et de tuer votre ami. Adieu.")  # print the message bad input
                 break  # Quit the program
 
             if a in WORD_TO_GUESS:  # if the letter is in the word to guess
-                print("Well done, ", a, "is in the word !")
+                print("Bravo ", nom, " , ", a, " est dans le mot!")
                 # We need to convert the string to a list (since strings are immutable)
                 wd = list(word_display)
                 # We iterate over the letter of the word
@@ -246,52 +295,66 @@ if y == 1:
                 word_display = "".join(wd)
 
                 if word_display == WORD_TO_GUESS:  # if the word wich is display is the same of the word display
-                    print("YOU WIN !! The word was", WORD_TO_GUESS)  # say the player he win.
+                    print("Bravo", nom, " !! le mot est bien", WORD_TO_GUESS,
+                          ", tu viens de sauver ton meilleur ami...")  # say the player he win.
                     if missed_count == 0:  # if he find the word in one time
-                        print("Congrats! You find the word in one time!")  # congrats the plater
+                        print(
+                            "Tu as reussi à sauver ton ami très rapidement. Encore bravo tu viens de gagner mon respect éternel.")  # congrats the plater
                     else:  # else inform the number of error he made
-                        print("You find the word in", missed_count, "times")
+                        print("Vous avez trouvez le mot en ", missed_count, " fois. Chapeau!")
                         print(ascii_art_hangman(missed_count))  # print the ascii art of the hangman
                     break
 
             else:  # if the letter the user type is not in the word
-                print("missed, try again !")  # inform the user he missed
+                print("Perdu, réessaye ", nom, " !")  # inform the user he missed
                 missed_count += 1  # add one to the counter of the letter
                 missed_letters.append(a)
-                print("You try those letters : ")
+                print("Tu as essayé les lettres suivantes : ")
                 display_list(missed_letters, ", ")
                 print("")
                 if missed_count >= MAX_COUNT:  # if the counter of error is equal of the max error the user can make
                     print(ascii_art_hangman(missed_count))  # display the ascii art of the hangman of the loose
 
-            print("You have", MAX_COUNT - missed_count, "tries left")  # display the number of errors
+            print("Il te reste ", MAX_COUNT - missed_count, " essais")  # display the number of errors
             print(ascii_art_hangman(missed_count))  # display the ascii art of the number of missed count
             print(word_display)  # display the word the player find
-elif y == 2:
+
+
+def guess_my_number(nom):
     # Author : Antoine Scherrer <antoine.scherrer@lecole-ldlc.com>
     # Licence : GPL
 
-    max_num = int(input("Enter the maximum number you can guess : "))  # get the max number
-    number = randint(1, max_num)  # choose the number to guess
+    print(
+        "Salut %s, j'espère que tout va bien car aujourd'hui tu travaille pour Mr Robespierre. Tu doit pendre une personne. " % nom)
+    print("""
+ _____ ____  ____  ____    _     _     ____  _  __
+/  __//  _ \/  _ \/  _ \  / \   / \ /\/   _\/ |/ /
+| |  _| / \|| / \|| | \|  | |   | | |||  /  |   / 
+| |_//| \_/|| \_/|| |_/|  | |_/\| \_/||  \_ |   \ 
+\____\\\\____/\____/\____/  \____/\____/\____/\_|\_\\
+                                                  
+""")
+    max_num = int(input("Entrez le nombre maximum à deviner : "))  # get the max number
+    number = random.randint(1, max_num)  # choose the number to guess
     nb_trials = 0  # number of try
 
-    print('Welcome, try to guess my secret number between 1 and ', end="")
+    print('Bienvenue,', nom, ' essaye de trouver le nombre choisi par le supra ordinateur compris entre 1 et ', end="")
     print(max_num)
-    essai = int(input("How many try do you want : "))  # get the max try the user want
+    essai = int(input("Combien d'essai voulez vous avant votre mort : "))  # get the max try the user want
     i = 0
     while i < essai:  # while the number of try is not equal to the try the user do
-        user_number = int(input('Your guess ?'))  # number the word think it's
+        user_number = int(input('Alors quel nombre choisissez vous ?'))  # number the word think it's
         nb_trials = nb_trials + 1  # add 1 to the number of trial
         if user_number == number:  # if user type the same number as the AI
             # user won !
-            print("YOU WIN, Congratulations")
-            print("It took you %s trials" % nb_trials)
+            print("Vous avez gagnez ", nom, ",  repsect")
+            print("Cela vous à pris %s essais" % nb_trials)
             break
         elif user_number < number:  # if user number is under the ai number
-            print("too small !")
+            print("Votre nombre est trop petit !")
         elif user_number > number:  # else if user number is upper of the ai number
-            print("too big !")
+            print("Votre nombre est trop grand !")
         i += 1
-else:
-    print("Error. Exiting...")
-    exit("NO CHOICE MAKE")
+
+
+menu()
