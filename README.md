@@ -19,3 +19,5 @@ Difficulté : BLEU
  - (FINISH) -> Mémoriser les lettres
  - (FINISH) menu multi-jeux
  - (FINISH) Add the game guess my number
+ - (FINISH) Ajout de la fonctionalité "nom" soit aléatoire ou au choix
+ - (FINSIH) Fonction lettre si taper afficher quelle lettre ont été testés
